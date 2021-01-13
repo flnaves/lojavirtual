@@ -10,8 +10,24 @@ class HomeTab extends StatelessWidget {
             Color.fromARGB(255, 253, 101, 168)
           ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
         );
-    return Stack(
-      children: <Widget>[_buildBodyBack()],
+    return Stack( // allow overlap of widgets
+      children: <Widget>[
+        _buildBodyBack(), // background of tab
+        CustomScrollView(
+          slivers: <Widget>[
+            SliverAppBar(
+              floating: true,
+              snap: true,
+              backgroundColor: Colors.transparent,
+              elevation: 0.0,
+              flexibleSpace: FlexibleSpaceBar(
+                title: const Text("Novidades"),
+                centerTitle: true,
+              ),
+            ),
+          ]
+        ),        
+      ],
     );
   }
 }

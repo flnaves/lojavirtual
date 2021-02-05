@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:loja_virtual/screens/home_screen.dart';
+import 'package:global_configuration/global_configuration.dart';
 
-void main() {
+void main() async {
+   WidgetsFlutterBinding.ensureInitialized();
+  await GlobalConfiguration().loadFromPath("lib/assets/cfg/app_settings.json");
   runApp(MyApp());
 }
 
